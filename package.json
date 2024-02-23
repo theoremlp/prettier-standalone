@@ -1,0 +1,19 @@
+{
+  "name": "prettier-standalone",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist/ node_modules/",
+    "cli": "bun run ./index.ts",
+    "package": "bun build ./index.ts --compile --outfile dist/prettier"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "prettier": "^3.2.5"
+  }
+}
