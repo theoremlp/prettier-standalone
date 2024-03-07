@@ -2,7 +2,7 @@
  * Bun entrypoint for prettier cli
  */
 
-import { readlinkSync, statSync } from "fs";
+import { realpathSync, lstatSync } from "fs";
 import "process";
 
 const resolvedArgv = process.argv.slice(2).map((arg) => {
@@ -12,8 +12,8 @@ const resolvedArgv = process.argv.slice(2).map((arg) => {
   }
 
   // If the arg is a file to lint, dereference symlinks if necessary
-  const stats = statSync(arg);
-  return stats.isSymbolicLink() ? readlinkSync(arg) : arg;
+  const stats = lstatSync(arg);
+  return stats.isSymbolicLink() ? realpathSync(arg) : arg;
 });
 
 const exitCode = await require("prettier/internal/cli.mjs").run(resolvedArgv);
