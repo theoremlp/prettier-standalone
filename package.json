@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rm -rf dist/ node_modules/",
     "cli": "bun run ./index.ts",
-    "package": "bun build ./index.ts --compile --outfile dist/prettier"
+    "package": "bun build ./index.ts --compile --outfile dist/prettier",
+    "test": "./test/integration_test.sh"
   },
   "devDependencies": {
     "@types/bun": "latest"
