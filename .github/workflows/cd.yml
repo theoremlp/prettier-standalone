@@ -10,10 +10,9 @@ jobs:
       contents: write
     strategy:
       matrix:
-        include:
-          - {"runner": "ubuntu-latest", "platform": "linux", "arch": "amd64"}
-          - {"runner": "macos-latest", "platform": "darwin", "arch": "amd64"}
-    runs-on: ${{ matrix.runner }}
+        platform: [linux, mac]
+        arch: [x64, arm64]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
@@ -24,7 +23,10 @@ jobs:
         run: bun install
       - name: build & package
         shell: bash
-        run: bun run package
+        env:
+          PLATFORM: ${{ matrix.platform }}
+          ARCH: ${{ matrix.arch }}
+        run: bun run package --target="${PLATFORM}-${ARCH}"
       - name: upload artifacts
         shell: bash
         env:
@@ -41,4 +43,3 @@ jobs:
 
           ARTIFACT="dist/${PREFIX}.tar.gz"
           gh release upload "${VERSION}" "${ARTIFACT}"
- 
