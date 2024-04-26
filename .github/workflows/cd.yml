@@ -26,7 +26,7 @@ jobs:
         env:
           PLATFORM: ${{ matrix.platform }}
           ARCH: ${{ matrix.arch }}
-        run: bun run package --target="${PLATFORM}-${ARCH}"
+        run: bun run package --target="bun-${PLATFORM}-${ARCH}"
       - name: upload artifacts
         shell: bash
         env:
