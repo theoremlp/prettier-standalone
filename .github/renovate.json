@@ -1,0 +1,13 @@
+{
+  "extends": [
+    ":dependencyDashboard",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all"
+  ],
+  "timezone": "America/New_York",
+  "schedule": ["every weekday after 9am before 5pm"],
+  "branchConcurrentLimit": 10,
+  "labels": ["automerge"]
+}
