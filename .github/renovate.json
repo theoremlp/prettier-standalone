@@ -9,5 +9,6 @@
   "timezone": "America/New_York",
   "schedule": ["every weekday after 9am before 5pm"],
   "branchConcurrentLimit": 10,
-  "labels": ["automerge"]
+  "labels": ["automerge"],
+  "rangeStrategy": "bump"
 }
