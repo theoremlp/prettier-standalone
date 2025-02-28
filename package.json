@@ -12,7 +12,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "dependencies": {
     "prettier": "^3.5.2"
