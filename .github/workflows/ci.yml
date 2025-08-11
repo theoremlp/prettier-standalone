@@ -22,7 +22,7 @@ jobs:
           - {"runner": "macos-latest", "platform": "darwin", "arch": "amd64"}
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: oven-sh/setup-bun@v2
