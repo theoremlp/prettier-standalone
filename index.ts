@@ -4,6 +4,7 @@
 
 import { realpathSync, lstatSync } from "fs";
 import "process";
+import * as cli from "./node_modules/prettier/internal/legacy-cli.mjs";
 
 const resolvedArgv = process.argv.slice(2).map((arg) => {
   // Propagate flags without modifications
@@ -16,5 +17,5 @@ const resolvedArgv = process.argv.slice(2).map((arg) => {
   return stats.isSymbolicLink() ? realpathSync(arg) : arg;
 });
 
-const exitCode = await require("prettier/internal/cli.mjs").run(resolvedArgv);
+const exitCode = await cli.run(resolvedArgv);
 process.exit(exitCode);
