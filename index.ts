@@ -4,7 +4,7 @@
 
 import { realpathSync, lstatSync } from "fs";
 import "process";
-import * as cli from "./node_modules/prettier/internal/cli.mjs";
+import * as cli from "./node_modules/prettier/internal/legacy-cli.mjs";
 
 const resolvedArgv = process.argv.slice(2).map((arg) => {
   // Propagate flags without modifications
