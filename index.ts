@@ -16,5 +16,6 @@ const resolvedArgv = process.argv.slice(2).map((arg) => {
   return stats.isSymbolicLink() ? realpathSync(arg) : arg;
 });
 
-const exitCode = await require("prettier/internal/cli.mjs").run(resolvedArgv);
+const cli = await import("prettier/internal/cli.mjs");
+const exitCode = await cli.run(resolvedArgv);
 process.exit(exitCode);
