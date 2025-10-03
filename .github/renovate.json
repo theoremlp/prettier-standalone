@@ -1,14 +1,9 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":dependencyDashboard",
-    "group:monorepos",
-    "group:recommended",
-    "replacements:all",
-    "workarounds:all"
+    "config:recommended"
   ],
-  "timezone": "America/New_York",
-  "schedule": ["every weekday after 9am before 5pm"],
-  "branchConcurrentLimit": 10,
-  "labels": ["automerge"],
-  "rangeStrategy": "bump"
+  "automerge": true,
+  "automergeType": "pr",
+  "automergeStrategy": "squash"
 }
